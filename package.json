@@ -1,13 +1,13 @@
 {
   "name": "fam-fs83a",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "./src",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src"
   },
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "author": "Dyam Marcano <dyam.marcano@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "moment": "^2.15.1",
     "serialport": "^4.0.1",
@@ -15,5 +15,15 @@
     "socket.io": "^1.4.8",
     "socket.io-client": "^1.4.8",
     "wiring-pi": "^2.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyammarcano/fam83.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dyammarcano/fam83/issues"
+  },
+  "homepage": "https://github.com/dyammarcano/fam83#readme",
+  "description": ""
 }

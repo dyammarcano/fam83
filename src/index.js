@@ -1,3 +1,5 @@
+'use strict';
+
 const SerialPort = require('serialport');
 const wpi = require('wiring-pi');
 const sleep = require('sleep');
@@ -74,7 +76,7 @@ const fingerFound = () => {
   sleep.usleep(1500 * 1000);
 };
 
-steps = [];
+var steps = [];
 
 const operationState = (state) => {
   cleanPins();
@@ -86,7 +88,7 @@ const operationState = (state) => {
   famReadyMute();
 };
 
-port = new SerialPort('/dev/ttyAMA0', {
+const port = new SerialPort('/dev/ttyAMA0', {
   baudRate: 115200,
   dataBits: 8,
   parity: 'none',
@@ -113,18 +115,18 @@ famReady();
 //fingerError();
 //fingerCapture();
 
-commands = [];
+const commands = [];
 
 commands[0] = new Uint8Array([0x40, 0x4b, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x8b, 0x0d]); // check        40 4b 00 00 00 00 00 00 00 00 00 8b 0d
 commands[1] = new Uint8Array([0x40, 0x49, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x89, 0x0d]); // capture      40 49 00 00 00 00 00 00 00 00 00 89 0d
 commands[2] = new Uint8Array([0x40, 0x52, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x93, 0x0d]); // compare vip  40 52 00 00 00 00 00 00 00 00 01 93 0d
 commands[3] = new Uint8Array([0x40, 0x4c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0d]); // cancel       40 4c 00 00 00 00 00 00 00 00 00 00 0d
 
-num = 0;
-mode = 0;
-val = 0;
+var num = 0;
+var mode = 0;
+var val = 0;
 
-checkSum = (commands) => {
+let checkSum = (commands) => {
   for (var i = 0; i < 11; i++) {
     val += commands[i];
   }
@@ -143,7 +145,7 @@ setInterval(() => {
   port.write(commands[num]);
 }, 500);
 
-buffer = [];
+var buffer = [];
 
 port.on('data', (data) => {
 
