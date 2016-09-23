@@ -1,0 +1,19 @@
+{
+  "name": "fam-fs83a",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.15.1",
+    "serialport": "^4.0.1",
+    "sleep": "^4.0.0",
+    "socket.io": "^1.4.8",
+    "socket.io-client": "^1.4.8",
+    "wiring-pi": "^2.1.1"
+  }
+}
